@@ -8,7 +8,9 @@ import Category from '../models/category';
 const CategoriesScreen = ({navigation}: {navigation: NavigationProp<any>}) => {
   const renderCategoryItem = (itemData: any) => {
     const pressHandler = () => {
-      navigation.navigate('MealsOverview');
+      navigation.navigate('MealsOverview', {
+        categoryId: itemData.item.id,
+      });
     };
 
     return (

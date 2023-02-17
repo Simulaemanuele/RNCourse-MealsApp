@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Pressable, StyleSheet, Text, View, Platform} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 type CategoryGridTileProps = {
   title: string;
@@ -8,6 +9,8 @@ type CategoryGridTileProps = {
 };
 
 const CategoryGridTile = ({title, color, onPress}: CategoryGridTileProps) => {
+  // const navigation = useNavigation()
+
   return (
     <View style={styles.gridItem}>
       <Pressable
