@@ -15,22 +15,14 @@ import {
   Text,
   View,
 } from 'react-native';
+import CategoriesScreen from './screens/CategoriesScreen';
 
 function App(): JSX.Element {
-  return (
-    <View style={styles.container}>
-      <Text>{'Hello World!'}</Text>
-    </View>
-  );
+  return <CategoriesScreen />;
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
+  container: {},
 });
 
 export default App;
