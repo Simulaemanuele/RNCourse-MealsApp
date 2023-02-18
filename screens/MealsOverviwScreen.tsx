@@ -2,7 +2,7 @@ import * as React from 'react';
 import {MEALS} from '../data/dummy-data';
 import {StyleSheet, Text, View, FlatList, ListRenderItem} from 'react-native';
 import type {RouteProp} from '@react-navigation/native';
-import MealItem from '../components/MealItem';
+import MealItem, {MealItemProps} from '../components/MealItem';
 import Meal from '../models/meal';
 
 const MealsOverviwScreen = ({route}: {route: RouteProp<any>}) => {
@@ -13,7 +13,16 @@ const MealsOverviwScreen = ({route}: {route: RouteProp<any>}) => {
   });
 
   const renderMealItem = (itemData: any) => {
-    return <MealItem title={itemData.item.title} />;
+    const item = itemData.item;
+
+    const mealItemProps: MealItemProps = {
+      title: item.title,
+      imageUrl: item.imageUrl,
+      duration: item.duration,
+      complexity: item.complexity,
+      affordability: item.affordability,
+    };
+    return <MealItem {...mealItemProps} />;
   };
 
   return (
