@@ -2,12 +2,22 @@ import * as React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {MealItemProps} from './MealItem';
 
-const MealDetails = ({duration, complexity, affordability}: MealItemProps) => {
+const MealDetails = ({
+  duration,
+  complexity,
+  affordability,
+  style,
+  textStyle,
+}: MealItemProps) => {
   return (
-    <View style={styles.details}>
-      <Text style={styles.detailItem}>{duration}m</Text>
-      <Text style={styles.detailItem}>{complexity.toUpperCase()}</Text>
-      <Text style={styles.detailItem}>{affordability.toUpperCase()}</Text>
+    <View style={[styles.details, style]}>
+      <Text style={[styles.detailItem, textStyle]}>{duration}m</Text>
+      <Text style={[styles.detailItem, textStyle]}>
+        {complexity.toUpperCase()}
+      </Text>
+      <Text style={[styles.detailItem, textStyle]}>
+        {affordability.toUpperCase()}
+      </Text>
     </View>
   );
 };

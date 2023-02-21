@@ -10,6 +10,8 @@ export type MealItemProps = {
   duration: number;
   complexity: string;
   affordability: string;
+  style?: any;
+  textStyle?: any;
 };
 
 const MealItem = ({
