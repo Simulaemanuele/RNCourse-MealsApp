@@ -32,6 +32,7 @@ const MealsOverviwScreen = ({
     const item = itemData.item;
 
     const mealItemProps: MealItemProps = {
+      id: item.id,
       title: item.title,
       imageUrl: item.imageUrl,
       duration: item.duration,
