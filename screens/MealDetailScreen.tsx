@@ -1,15 +1,40 @@
 import {NavigationProp, RouteProp} from '@react-navigation/native';
 import * as React from 'react';
-import {ScrollView, View, Text, Image, StyleSheet} from 'react-native';
+import {ScrollView, View, Text, Image, StyleSheet, Button} from 'react-native';
+import IconButton from '../components/IconButton';
 import List from '../components/MealDetail/List';
 import Subtitle from '../components/MealDetail/Subtitle';
 import MealDetails from '../components/MealDetails';
 import {MEALS} from '../data/dummy-data';
 
-const MealDetailScreen = ({route}: {route: RouteProp<any>}) => {
+const MealDetailScreen = ({
+  route,
+  navigation,
+}: {
+  route: RouteProp<any>;
+  navigation: NavigationProp<any>;
+}) => {
   const mealId = route.params?.mealId;
 
   const selectedMeal = MEALS.find(meal => meal.id === mealId);
+
+  const headerButtonPressHandler = () => {
+    console.log('Pressed!');
+  };
+
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => {
+        return (
+          <IconButton
+            icon="star"
+            color="white"
+            onPress={headerButtonPressHandler}
+          />
+        );
+      },
+    });
+  }, [navigation, headerButtonPressHandler]);
 
   return (
     <ScrollView style={styles.rootContainer}>
