@@ -8,6 +8,7 @@
 import * as React from 'react';
 
 import {
+  Button,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -69,7 +70,7 @@ function App(): JSX.Element {
             name={'MealDetail'}
             component={MealDetailScreen}
             options={{
-              title: 'Meal Detail Screen',
+              title: 'Meal Detail',
             }}
           />
         </Stack.Navigator>
