@@ -1,7 +1,7 @@
 import {useNavigation} from '@react-navigation/native';
 import * as React from 'react';
 import {View, Text, Pressable, Image, StyleSheet, Platform} from 'react-native';
-import MealDetails from './MealDetails';
+import MealDetails from '../MealDetails';
 
 export type MealItemProps = {
   id?: string;

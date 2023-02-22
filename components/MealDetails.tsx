@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import {MealItemProps} from './MealItem';
+import {MealItemProps} from './MealsList/MealItem';
 
 const MealDetails = ({
   duration,

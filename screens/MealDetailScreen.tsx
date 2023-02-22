@@ -6,6 +6,7 @@ import List from '../components/MealDetail/List';
 import Subtitle from '../components/MealDetail/Subtitle';
 import MealDetails from '../components/MealDetails';
 import {MEALS} from '../data/dummy-data';
+import {FavouritesContext} from '../store/context/favourites-context';
 
 const MealDetailScreen = ({
   route,
@@ -14,12 +15,20 @@ const MealDetailScreen = ({
   route: RouteProp<any>;
   navigation: NavigationProp<any>;
 }) => {
+  const favouriteMealsCtx = React.useContext(FavouritesContext);
+
   const mealId = route.params?.mealId;
 
   const selectedMeal = MEALS.find(meal => meal.id === mealId);
 
-  const headerButtonPressHandler = () => {
-    console.log('Pressed!');
+  const mealIsFavourite = favouriteMealsCtx.ids.includes(mealId);
+
+  const changeFavouriteStatusHandler = () => {
+    if (mealIsFavourite) {
+      favouriteMealsCtx.removeFavourite(mealId);
+    } else {
+      favouriteMealsCtx.addFavourite(mealId);
+    }
   };
 
   React.useLayoutEffect(() => {
@@ -27,14 +36,14 @@ const MealDetailScreen = ({
       headerRight: () => {
         return (
           <IconButton
-            icon="star"
+            icon={mealIsFavourite ? 'star' : 'star-outline'}
             color="white"
-            onPress={headerButtonPressHandler}
+            onPress={changeFavouriteStatusHandler}
           />
         );
       },
     });
-  }, [navigation, headerButtonPressHandler]);
+  }, [navigation, changeFavouriteStatusHandler]);
 
   return (
     <ScrollView style={styles.rootContainer}>
