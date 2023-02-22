@@ -22,10 +22,15 @@ const MealDetailScreen = ({
   const dispatch = useDispatch();
 
   const mealId = route.params?.mealId;
+  console.log(mealId);
 
   const selectedMeal = MEALS.find(meal => meal.id === mealId);
 
-  const mealIsFavourite = favouriteMealIds.includes(mealId);
+  console.log('selectedMeal: ', selectedMeal);
+
+  const mealIsFavourite = favouriteMealIds?.includes(mealId);
+
+  console.log(mealIsFavourite);
 
   const changeFavouriteStatusHandler = () => {
     if (mealIsFavourite) {
